@@ -9,24 +9,30 @@ public class ReceiptItemTest {
     @Test
     public void shouldHaveZeroTaxForZeroPrice() {
         ReceiptItem receiptItem = new ReceiptItem(1, "book", 0.0, false);
-        assertEquals(0.0, receiptItem.salesTax(), 0.0);
+        assertEquals(0.0, receiptItem.salesTax(), 0.001);
     }
 
     @Test
     public void shouldHaveTenPercentTaxForAllGoods() {
         ReceiptItem receiptItem = new ReceiptItem(1, "CD", 10.0, false);
-        assertEquals(1.0, receiptItem.salesTax(), 0.0);
+        assertEquals(1.0, receiptItem.salesTax(), 0.001);
     }
 
     @Test
     public void shouldHaveFivePercentExtraForImported() {
         ReceiptItem receiptItem = new ReceiptItem(1, "CD", 10.0, true);
-        assertEquals(1.5, receiptItem.salesTax(), 0.0);
+        assertEquals(1.5, receiptItem.salesTax(), 0.001);
     }
 
     @Test
     public void shouldHaveZeroTaxForExceptionsInGoods() {
         ReceiptItem receiptItem = new ReceiptItem(1, "book", 10.0, false);
-        assertEquals(0.0, receiptItem.salesTax(), 0.0);
+        assertEquals(0.0, receiptItem.salesTax(), 0.001);
+    }
+
+    @Test
+    public void shouldHaveFivePercentTaxForImportedExceptionInGoods() {
+        ReceiptItem receiptItem = new ReceiptItem(1, "book", 10.0, true);
+        assertEquals(0.5, receiptItem.salesTax(), 0.001);
     }
 }
