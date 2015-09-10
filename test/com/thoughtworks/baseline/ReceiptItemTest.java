@@ -35,4 +35,10 @@ public class ReceiptItemTest {
         ReceiptItem receiptItem = new ReceiptItem(1, "book", 10.0, true);
         assertEquals(0.5, receiptItem.salesTax(), 0.001);
     }
+
+    @Test
+    public void priceShouldBeCostPlusTax() {
+        ReceiptItem receiptItem = new ReceiptItem(1, "CD", 10.0, true);
+        assertEquals(11.5, receiptItem.price(), 0.001);
+    }
 }

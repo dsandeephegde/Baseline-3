@@ -30,4 +30,8 @@ public class ReceiptItem {
             tax += 0.05;
         return tax * cost;
     }
+
+    public double price() {
+        return salesTax() + cost;
+    }
 }
