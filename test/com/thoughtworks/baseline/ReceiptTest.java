@@ -30,4 +30,18 @@ public class ReceiptTest {
 
         assertEquals(3.0, receipt.totalSalesTax(), 0.001);
     }
+
+    @Test
+    public void shouldReturnTotalPrice() {
+        ArrayList<ReceiptItem> receiptItems = new ArrayList<ReceiptItem>();
+        ReceiptItem receiptItem1 = mock(ReceiptItem.class);
+        ReceiptItem receiptItem2 = mock(ReceiptItem.class);
+        when(receiptItem1.price()).thenReturn(11.0);
+        when(receiptItem2.price()).thenReturn(11.5);
+        receiptItems.add(receiptItem1);
+        receiptItems.add(receiptItem2);
+        Receipt receipt= new Receipt(receiptItems);
+
+        assertEquals(22.5, receipt.price(), 0.001);
+    }
 }

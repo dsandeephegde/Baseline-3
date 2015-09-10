@@ -18,4 +18,12 @@ public class Receipt {
         }
         return salesTax;
     }
+
+    public double price() {
+        double price = 0;
+        for (ReceiptItem receiptItem : receiptItems) {
+            price += receiptItem.price();
+        }
+        return price;
+    }
 }
