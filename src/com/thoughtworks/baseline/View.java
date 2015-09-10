@@ -16,4 +16,8 @@ public class View {
     public String input() {
         return scanner.nextLine();
     }
+
+    public void output(String message) {
+        printStream.print(message);
+    }
 }
