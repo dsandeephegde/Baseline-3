@@ -11,7 +11,11 @@ public class Receipt {
         this.receiptItems = receiptItems;
     }
 
-    public double salesTax() {
-        return 0;
+    public double totalSalesTax() {
+        double salesTax = 0;
+        for (ReceiptItem receiptItem : receiptItems ) {
+            salesTax += receiptItem.salesTax();
+        }
+        return salesTax;
     }
 }
