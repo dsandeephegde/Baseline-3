@@ -11,4 +11,10 @@ public class ReceiptItemTest {
         ReceiptItem receiptItem = new ReceiptItem(1, "book", 0.0, false);
         assertEquals(0.0, receiptItem.salesTax(), 0.0);
     }
+
+    @Test
+    public void shouldHaveTenPercentTaxForAllGoods() {
+        ReceiptItem receiptItem = new ReceiptItem(1, "CD", 10.0, false);
+        assertEquals(1.0, receiptItem.salesTax(), 0.0);
+    }
 }

@@ -1,3 +1,4 @@
+//It is an Item in Receipt for which sales tax has to be calculated
 package com.thoughtworks.baseline;
 
 public class ReceiptItem {
@@ -15,6 +16,6 @@ public class ReceiptItem {
     }
 
     public double salesTax() {
-        return 0;
+        return 0.1 * price;
     }
 }
