@@ -1,6 +1,8 @@
 //It is an Item in Receipt for which sales tax has to be calculated
 package com.thoughtworks.baseline;
 
+import java.util.ArrayList;
+
 public class ReceiptItem {
 
     private int noOfGoods;
@@ -16,6 +18,8 @@ public class ReceiptItem {
     }
 
     public double salesTax() {
+        if(isImported)
+            return 0.15 * price;
         return 0.1 * price;
     }
 }
